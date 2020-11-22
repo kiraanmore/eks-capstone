@@ -30,7 +30,6 @@ pipeline {
 			
 		
 		}
-	}
         stage('Spring Deploy') {
             steps {
                 sh 'kubectl apply -f capstone-deployment.yml'
