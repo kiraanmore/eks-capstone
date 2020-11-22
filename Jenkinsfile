@@ -34,7 +34,8 @@ pipeline {
 		}
         stage('Spring Deploy') {
             steps {
-                sh 'kubectl apply -f capstone-deployment.yml'
+                 sh 'aws eks --region us-west-2 update-kubeconfig --name eks-cluster'
+		 sh 'kubectl apply -f capstone-deployment.yml'
                 }
         }        
     }
