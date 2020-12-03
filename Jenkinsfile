@@ -40,7 +40,7 @@ pipeline {
 		    script {
 		        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: "AWS", secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                            sh 'aws eks --region us-west-2 update-kubeconfig --name eks-cluster'
-		           sh 'kubectl apply -f capstone-deployment-"${params.deployment}".yml'
+		           sh 'kubectl apply -f capstone-deployment-${params.deployment}.yml'
 			   sh 'sed -i \"s;DEPLOYMENT;${params.deployment};g\" service.yaml'
 			   sh 'kubectl apply -f service.yaml'
 			}
