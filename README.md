@@ -1,6 +1,6 @@
 # eks-capstone
 
-EKS cluster is created using Cloudformation and the cloudformation scripts could be found under Cloudformation directory.
+EKS cluster is created using Cloudformation and the cloudformation scripts are under the Cloudformation directory.
 
 There are two deployment yaml files created. One each for blue and green deployment. Both deployments happen under the same EKS namespace but with different app names. 
 
