@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'echo Test'
             }
         }
         stage('Lint Dockerfile') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn package'
+                sh 'echo Build Stage'
                 sh 'ls -a'      
             }
 
