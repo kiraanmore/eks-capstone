@@ -16,8 +16,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo Build Stage'
-                sh 'ls -a'      
+                sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 959661509556.dkr.ecr.us-east-2.amazonaws.com'
+                sh 'docker build -t firstrepo .'
+                sh 'docker tag firstrepo:latest 959661509556.dkr.ecr.us-east-2.amazonaws.com/firstrepo:${BUILD_NUMBER}'
+                sh 'docker push 959661509556.dkr.ecr.us-east-2.amazonaws.com/firstrepo:${BUILD_NUMBER}      
             }
 
 	}
